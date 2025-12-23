@@ -32,6 +32,11 @@ LiveCodeInterview enables real-time collaborative coding sessions with:
 - **Python**: Pyodide (Python compiled to WebAssembly)
 - **Libraries**: NumPy, Pandas (auto-installed on first use)
 
+## Live demo
+https://livecodeinterview.onrender.com/
+
+> Note: the first load may take up to 30–50 seconds on Render Free tier.
+
 ## Quick Start
 
 ### Prerequisites
