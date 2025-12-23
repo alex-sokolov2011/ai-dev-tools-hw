@@ -1,0 +1,133 @@
+/**
+ * CodeEditor Component Styles
+ * 
+ * Premium code editor styling with:
+ * - macOS-style window chrome
+ * - Monaco Editor integration
+ * - Dark theme
+ */
+
+.code-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   Header (macOS-style window chrome)
+   ============================================ */
+.code-editor__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-tertiary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.code-editor__dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.code-editor__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.code-editor__dot--red {
+  background: #ff5f56;
+}
+
+.code-editor__dot--yellow {
+  background: #ffbd2e;
+}
+
+.code-editor__dot--green {
+  background: #27ca40;
+}
+
+.code-editor__filename {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   Body (Monaco Editor Area)
+   ============================================ */
+.code-editor__body {
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Monaco editor container adjustments */
+.code-editor__body .monaco-editor {
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+}
+
+/* Override Monaco scrollbar to match our theme */
+.code-editor__body .monaco-scrollable-element > .scrollbar > .slider {
+  background: var(--color-border) !important;
+}
+
+.code-editor__body .monaco-scrollable-element > .scrollbar > .slider:hover {
+  background: var(--color-border-hover) !important;
+}
+
+/* ============================================
+   Loading State
+   ============================================ */
+.code-editor__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: 100%;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.code-editor__loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-accent-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   Light Theme Adjustments
+   ============================================ */
+[data-theme="light"] .code-editor {
+  background: var(--color-bg-secondary);
+}
+
+[data-theme="light"] .code-editor__header {
+  background: var(--color-bg-tertiary);
+}
+
+/* Fix for Monaco Editor visible textarea bug */
+.monaco-editor .ime-text-area {
+  opacity: 0 !important;
+  z-index: -1 !important;
+  width: 0 !important;
+  height: 0 !important;
+  visibility: hidden !important;
+  position: absolute !important;
+}
